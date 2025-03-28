@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientific Number Check</title>
+<style>
+    body {
+        font-family: Comic Sans MS;
+        background: linear-gradient(to bottom right, #FF00FF, #D8BFD8);
+        text-align: center;
+        padding: 20px;
+    }
+    .container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        display: inline-block;
+        margin-top: 50px;
+        font-size: 20px;
+    }
+    .title {
+        color: #9400D3;
+        margin: 10px 0;
+    }
+    .input-field {
+        margin: 20px 0;
+        padding: 10px;
+        width: 80%;
+    }
+    .button {
+        background-color: #8B008B;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .button:hover {
+        background-color: #FF00FF;
+    }
+    .footer {
+        margin-top: 50px;
+        font-size: 2em;
+    }
+    .result {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    .valid {
+        color: #28a745; /* Hijau */
+    }
+    .invalid {
+        color: #dc3545; /* Merah */
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="title">Scientific Number Check</div>
+    <p>Please Enter a Scientific Number</p>
+    <input type="text" class="input-field" id="numberInput" placeholder="Type your number here...">
+    <button class="button" onclick="checkNumber()">Check</button>
+    <div class="result" id="result"></div>
+</div>
+<div class="footer">
+    <p>Ezra Weydekamp</p>
+    <p>221011030048</p>
+</div>
+
+<script>
+    function checkNumber() {
+        const input = document.getElementById('numberInput').value.trim();
+        const scientificRegex = /^[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?$/;
+        const isValid = scientificRegex.test(input);
+        const resultDiv = document.getElementById('result');
+        
+        resultDiv.textContent = isValid 
+            ? "✓ Valid Scientific Number" 
+            : "✗ Invalid Scientific Number";
+            
+        resultDiv.className = isValid ? "result valid" : "result invalid";
+    }
+</script>
+</body>
+</html>
